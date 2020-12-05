@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{71CD93F6-8567-4896-949A-49C1E6E62B41}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="D27\Lib_TypeDefinitions.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Lib_TypeDefinitions">
+        <MSBuild Projects="D27\Lib_TypeDefinitions.dproj"/>
+    </Target>
+    <Target Name="Lib_TypeDefinitions:Clean">
+        <MSBuild Projects="D27\Lib_TypeDefinitions.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Lib_TypeDefinitions:Make">
+        <MSBuild Projects="D27\Lib_TypeDefinitions.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Lib_TypeDefinitions"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Lib_TypeDefinitions:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Lib_TypeDefinitions:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
