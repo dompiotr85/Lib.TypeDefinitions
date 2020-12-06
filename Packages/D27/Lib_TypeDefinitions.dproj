@@ -34,21 +34,9 @@
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
     </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
-        <Cfg_1_Win64>true</Cfg_1_Win64>
-        <CfgParent>Cfg_1</CfgParent>
-        <Cfg_1>true</Cfg_1>
-        <Base>true</Base>
-    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
-        <Base>true</Base>
-    </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
-        <Cfg_2_Win32>true</Cfg_2_Win32>
-        <CfgParent>Cfg_2</CfgParent>
-        <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
@@ -71,7 +59,7 @@
         <SanitizedProjectName>Lib_TypeDefinitions</SanitizedProjectName>
         <DCC_UnitSearchPath>..\..\Source\Include;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.41;InternalName=Lib_TypeDefinitions;LegalCopyright=Copyright (c) 2018-2020, Piotr Domański;LegalTrademarks=All Rights Reserved.;OriginalFilename=Lib_TypeDefinitions.bpl;ProgramID=com.domanprogramming.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.46;InternalName=Lib_TypeDefinitions;LegalCopyright=Copyright (c) 2018-2020, Piotr Domański;LegalTrademarks=All Rights Reserved.;OriginalFilename=Lib_TypeDefinitions.bpl;ProgramID=com.domanprogramming.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4;Comments=</VerInfo_Keys>
         <DCC_HppOutput>..\..\Lib\D27\$(Platform)\$(Config)</DCC_HppOutput>
         <DCC_ObjOutput>..\..\Lib\D27\$(Platform)\$(Config)</DCC_ObjOutput>
         <DCC_Description>Lib.TypeDefinitions package</DCC_Description>
@@ -82,7 +70,7 @@
         <VerInfo_MajorVer>0</VerInfo_MajorVer>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
         <VerInfo_Release>4</VerInfo_Release>
-        <VerInfo_Build>41</VerInfo_Build>
+        <VerInfo_Build>46</VerInfo_Build>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -92,11 +80,6 @@
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <VerInfo_MajorVer>1</VerInfo_MajorVer>
-        <VerInfo_MinorVer>0</VerInfo_MinorVer>
-        <VerInfo_Release>0</VerInfo_Release>
-        <VerInfo_Build>0</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -109,12 +92,6 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
-        <VerInfo_Build>42</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.42;InternalName=Lib_TypeDefinitions;LegalCopyright=Copyright (c) 2018-2020, Piotr Domański;LegalTrademarks=All Rights Reserved.;OriginalFilename=Lib_TypeDefinitions.bpl;ProgramID=com.domanprogramming.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4;Comments=</VerInfo_Keys>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
-        <VerInfo_Build>45</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.45;InternalName=Lib_TypeDefinitions;LegalCopyright=Copyright (c) 2018-2020, Piotr Domański;LegalTrademarks=All Rights Reserved.;OriginalFilename=Lib_TypeDefinitions.bpl;ProgramID=com.domanprogramming.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -122,14 +99,8 @@
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <VerInfo_Build>42</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.42;InternalName=Lib_TypeDefinitions;LegalCopyright=Copyright (c) 2018-2020, Piotr Domański;LegalTrademarks=All Rights Reserved.;OriginalFilename=Lib_TypeDefinitions.bpl;ProgramID=com.domanprogramming.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4;Comments=</VerInfo_Keys>
-    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
-        <VerInfo_Build>44</VerInfo_Build>
         <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=0.1.4.44;InternalName=Lib_TypeDefinitions;LegalCopyright=Copyright (c) 2018-2020, Piotr Domański;LegalTrademarks=All Rights Reserved.;OriginalFilename=Lib_TypeDefinitions.bpl;ProgramID=com.domanprogramming.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=0.1.4;Comments=</VerInfo_Keys>
         <VerInfo_AutoIncVersion>false</VerInfo_AutoIncVersion>
     </PropertyGroup>
     <ItemGroup>
