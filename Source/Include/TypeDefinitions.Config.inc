@@ -14,28 +14,44 @@
 
 {$IFDEF SUPPORTS_LEGACYIFEND}{$LEGACYIFEND ON}{$ENDIF}
 
-{ Remove dot ('.') if you need to uses Scientific mode in Lib.TypeDefinitions.
-  Scientific mode changes Float type from 32-bit float type to 64-bit float
-  type. This make Float type more precise in big calculations, but much
-  slower! }
-{.$DEFINE TD_SCIENTIFIC_MODE_MAX}
-{.$DEFINE TD_SCIENTIFIC_MODE}
+{$UNDEF TD_ScientificModeMax}
+{$UNDEF TD_ScientificFloatMode}
+{$UNDEF TD_ScientificStdMode}
 
-{$IFDEF TD_SCIENTIFIC_MODE_MAX}
- {$DEFINE TD_SCIENTIFIC_MODE}
-{$ENDIF ~TD_SCIENTIFIC_MODE_MAX}
+{-- Remove dot ('.') to enable specific feature in Lib.TypeDefinitions --------}
+
+{ TD_ScientificModeMax changes Float type, StdInt type and StdUInt type from
+  32-bit type value to 64-bit type value. Enabling this feature makes those
+  types more precise in big calculations, but much slower!
+  Use it with caution. }
+{.$DEFINE TD_ScientificModeMax}
+
+{ TD_ScientificFloatMode changes Float type from 32-bit type value to 64-bit
+  type value. Enabling this feature makes this type more precise in big
+  calculations, but much slower! Use it with caution. }
+{.$DEFINE TD_ScientificFloatMode}
+
+{ TD_ScientificStdMode changes StdInt type and StdUInt type from 32-bit type
+  value to 64-bit type value. Enabling this feature makes those types more
+  precise in big calculations, but mucj slower! Use it with caution. }
+{.$DEFINE TD_ScientificStdMode}
+
+{------------------------------------------------------------------------------}
+
+{$IFDEF TD_ScientificModeMax}
+ {$DEFINE TD_ScientificFloatMode}
+ {$DEFINE TD_ScientificStdMode}
+{$ENDIF ~TD_ScientificModeMax}
+
+{$H+}
 
 {$UNDEF TD_UInt64_NotNative}
-{$IF (DEFINED(DCC) OR DECLARED(CompilerVersion)) AND NOT DEFINED(FPC)}
+{$IF ((DEFINED(DCC) OR DECLARED(CompilerVersion)) AND NOT DEFINED(FPC))}
  { Assumes Delphi (DCC symbol is not defined in older Delphi than XE2) }
- {$IF (CompilerVersion <= 17)}
+ {$IF CompilerVersion <= 17}
   {$DEFINE TD_UInt64_NotNative}
  {$IFEND}
 {$IFEND}
-
-{$IFDEF FPC}
- {$MODE Delphi}
-{$ENDIF ~FPC}
 
 {$ENDIF ~TD_CONFIG_INC}
 
