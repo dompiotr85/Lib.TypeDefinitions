@@ -10,15 +10,15 @@
  Type definitions
 
  The main assumption of this library is to simplify the naming of the basic
- types found in Delphi environment and preserve them in optimised sizes that
- will be identical for different platforms and Delphi versions.
+ types found in Delphi/FPC environments and preserve them in optimised sizes
+ that will be identical for different platforms and Delphi/FPC versions.
 
  Version 0.1.5
 
  Copyright (c) 2018-2020, Piotr Domañski
 
  Last change:
-   07-12-2020
+   31-12-2020
 
  Changelog:
    For detailed changelog and history please refer to this git repository:
@@ -34,8 +34,9 @@
 {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
 /// <summary>
 ///   The main assumption of this unit is to simplify the naming of the basic
-///   types found in Delphi environment and preserve them in optimised sizes
-///   that will be identical for different platforms and Delphi versions.
+///   types found in Delphi/FPC environments and preserve them in optimised
+///   sizes that will be identical for different platforms and Delphi/FPC
+///   versions.
 /// </summary>
 {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
 unit TypeDefinitions;
@@ -44,11 +45,14 @@ unit TypeDefinitions;
 
 interface
 
+{- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
 const
   NativeUInt64 = {$IFDEF TD_UInt64_NotNative}False{$ELSE}True{$ENDIF};
 
-{-- Integers ------------------------------------------------------------------}
+{- Integer types - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
+{$IFDEF SUPPORTS_REGION}{$REGION 'Integers'}{$ENDIF}
 type
 {$IF (SizeOf(ShortInt) <> 1) OR (SizeOf(Byte) <> 1)}
  {$MESSAGE FATAL 'Wrong size of 8-bit integers!'}
@@ -61,12 +65,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   Int8 = ShortInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the 8-bit signed integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PInt8 = ^Int8;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -75,12 +83,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPInt8 = ^PInt8;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   The 8-bit unsigned integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   UInt8 = Byte;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -89,12 +101,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PUInt8 = ^UInt8;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the 8-bit unsigned integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPUInt8 = ^PUInt8;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
 {$IF (SizeOf(SmallInt) <> 2) OR (SizeOf(Word) <> 2)}
  {$MESSAGE FATAL 'Wrong size of 16-bit integers!'}
@@ -107,12 +123,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   Int16 = SmallInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the 16-bit signed integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PInt16 = ^Int16;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -121,12 +141,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPInt16 = ^PInt16;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   The 16-bit unsigned integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   UInt16 = Word;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -135,12 +159,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PUInt16 = ^UInt16;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the 16-bit unsigned integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPUInt16 = ^PUInt16;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -158,6 +186,8 @@ type
  {$IFEND}
 {$IFEND}
 
+{- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   Pointer to 32-bit signed integer.
@@ -165,12 +195,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PInt32 = ^Int32;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   Double pointer to 32-bit signed integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPInt32 = ^PInt32;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -188,12 +222,16 @@ type
  {$IFEND}
 {$IFEND}
 
+{- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the 32-bit unsigned integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PUInt32 = ^UInt32;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -202,12 +240,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPUInt32 = ^PUInt32;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double word as an unsigned 32-bit integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   DoubleWord = UInt32;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -216,12 +258,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PDoubleWord = ^DoubleWord;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to a double word as an unsigned 32-bit integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPDoubleWord = ^PDoubleWord;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -230,6 +276,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   DWord = DoubleWord;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the alias name of <see cref="TypeDefinitions|DoubleWord" />.
@@ -237,12 +285,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PDWord = ^DWord;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the alias name of <see cref="TypeDefinitions|DoubleWord" />.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPDWord = ^PDWord;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
 {$IF (SizeOf(Int64) <> 8) OR (SizeOf(UInt64) <> 8)}
  {$MESSAGE FATAL 'Wrong size of 64-bit integers!'}
@@ -260,12 +312,16 @@ type
     System.UInt64;
 {$ENDIF ~TD_UInt64_NotNative}
 
+{- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the 64-bit unsigned integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PUInt64 = ^UInt64;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -274,12 +330,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPUInt64 = ^PUInt64;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   The quad word as an unsigned 64-bit integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   QuadWord = UInt64;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -288,12 +348,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PQuadWord = ^QuadWord;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the quad word as an unsigned 64-bit integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPQuadWord = ^PQuadWord;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -302,6 +366,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   QWord = QuadWord;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the alias name of <see cref="TypeDefinitions|QuadWord" />.
@@ -309,15 +375,19 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PQWord = ^QWord;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the alias name of <see cref="TypeDefinitions|QuadWord" />.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPQWord = ^PQWord;
+{$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
 
-{-- Half-byte -----------------------------------------------------------------}
+{- Half-byte type - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -}
 
+{$IFDEF SUPPORTS_REGION}{$REGION 'Half-byte'}{$ENDIF}
 type
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -330,12 +400,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   TNibble = 0..15;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to a nibble value.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PNibble = ^TNibble;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -344,15 +418,19 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPNibble = ^PNibble;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   The alias name for <see cref="TypeDefinitions|TNibble" />.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   Nibble = TNibble;
+{$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
 
-{-- Pointer related types -----------------------------------------------------}
+{- Pointer related types - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
+{$IFDEF SUPPORTS_REGION}{$REGION 'Pointer related types'}{$ENDIF}
 type
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -368,6 +446,8 @@ type
     {$MESSAGE FATAL 'Unsupported size of pointer type!'}
 {$IFEND}
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to a pointer size signed integer.
@@ -375,12 +455,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPtrInt = ^PtrInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to a pointer size signed integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPPtrInt = ^PPtrInt;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -396,6 +480,8 @@ type
   {$MESSAGE FATAL 'Unsupported size of pointer type!'}
 {$IFEND}
 
+{- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to a pointer size unsigned integer.
@@ -403,12 +489,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPtrUInt = ^PtrUInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to a pointer size unsigned integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPPtrUInt = ^PPtrUInt;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -418,6 +508,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   NativeInt = PtrInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to a signed integer with the size of a pointer.
@@ -425,12 +517,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PNativeInt = ^NativeInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to a signed integer with the size of a pointer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPNativeInt = ^PNativeInt;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -440,6 +536,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   NativeUInt = PtrUInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to an unsigned integer with the size of a pointer.
@@ -447,15 +545,19 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PNativeUInt = ^NativeUInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to an unsigned integer with the size of a pointer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPNativeUInt = ^PNativeUInt;
+{$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
 
-{-- Float types ---------------------------------------------------------------}
+{- Float types - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
+{$IFDEF SUPPORTS_REGION}{$REGION 'Float types'}{$ENDIF}
 type
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -467,6 +569,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   Half = packed array[0..1] of UInt8;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to half precision floating point numbers.
@@ -474,12 +578,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PHalf = ^Half;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to half precision floating point numbers.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPHalf = ^PHalf;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
 {$IF (SizeOf(Half) <> 2)}
   {$MESSAGE FATAL 'Wrong size of 16-bit float!'}
@@ -495,6 +603,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   Float16 = Half;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the 16-bit floating point numbers.
@@ -502,12 +612,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PFloat16 = ^Float16;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the 16-bit floating point numbers.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPFloat16 = ^PFloat16;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
 {$IF (SizeOf(Single) <> 4)}
   {$MESSAGE FATAL 'Wrong size of 32-bit float!}
@@ -520,6 +634,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   Float32 = Single;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the 32-bit float type.
@@ -527,12 +643,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PFloat32 = ^Float32;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the 32-bit float type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPFloat32 = ^PFloat32;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
 {$IF (SizeOf(Double) <> 8)}
   {$MESSAGE FATAL 'Wrong size of 64-bit float!'}
@@ -545,6 +665,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   Float64 = Double;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the 64-bit float type.
@@ -552,12 +674,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PFloat64 = ^Float64;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the 64-bit float type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPFloat64 = ^PFloat64;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -572,6 +698,8 @@ type
     packed array[0..9] of UInt8;
 {$IFEND}
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the 80-bit float type.
@@ -579,12 +707,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PFloat80 = ^Float80;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the 80-bit float type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPFloat80 = ^PFloat80;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -599,6 +731,8 @@ type
     Float32;
 {$ENDIF ~TD_ScientificFloatMode}
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the Float type.
@@ -606,12 +740,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PFloat = ^Float;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the Float type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPFloat = ^PFloat;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
 const
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
@@ -621,9 +759,11 @@ const
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   FloatEpsilon: Float = 0.00001;
+{$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
 
-{-- String types --------------------------------------------------------------}
+{- String types - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -}
 
+{$IFDEF SUPPORTS_REGION}{$REGION 'String types'}{$ENDIF}
 type
 {$IF NOT DECLARED(UnicodeChar)}
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
@@ -634,6 +774,8 @@ type
   UnicodeChar = WideChar;
 {$IFEND}
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the Unicode character type.
@@ -641,12 +783,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PUnicodeChar = ^UnicodeChar;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the Unicode character type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPUnicodeChar = ^PUnicodeChar;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
 {$IF NOT DECLARED(UnicodeString)}
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
@@ -657,6 +803,8 @@ type
   UnicodeString = WideString;
 {$IFEND}
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to the Unicode string type.
@@ -664,12 +812,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PUnicodeString = ^UnicodeString;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the Unicode string type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPUnicodeString = ^PUnicodeString;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
 {$IF NOT DECLARED(UTF8Char)}
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
@@ -680,6 +832,8 @@ type
   UTF8Char = type AnsiChar;
 {$IFEND}
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A Pointer to the UTF8 character type.
@@ -687,15 +841,19 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PUTF8Char = ^UTF8Char;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to the UTF8 character type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPUTF8Char = ^PUTF8Char;
+{$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
 
-{-- Size types ----------------------------------------------------------------}
+{- Size types - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -}
 
+{$IFDEF SUPPORTS_REGION}{$REGION 'Size types'}{$ENDIF}
 type
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -704,12 +862,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   TStrSize = Int32;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to a string size type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PStrSize = ^TStrSize;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -718,12 +880,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPStrSize = ^PStrSize;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A memory size type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   TMemSize = PtrUInt;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -732,12 +898,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PMemSize = ^TMemSize;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to a memory size type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPMemSize = ^PMemSize;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -747,6 +917,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   SizeInt = PtrInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to <see cref="TypeDefinitions|SizeInt" />.
@@ -754,12 +926,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PSizeInt = ^SizeInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to <see cref="TypeDefinitions|SizeInt" />.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPSizeInt = ^PSizeInt;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -769,6 +945,8 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   SizeUInt = PtrUInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to <see cref="TypeDefinitions|SizeUInt" />.
@@ -776,15 +954,19 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PSizeUInt = ^SizeUInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to <see cref="TypeDefinitions|SizeUInt" />.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPSizeUInt = ^PSizeUInt;
+{$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
 
-{-- General use types ---------------------------------------------------------}
+{- General use types - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
+{$IFDEF SUPPORTS_REGION}{$REGION 'General use types'}{$ENDIF}
 type
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -806,6 +988,8 @@ type
     Integer;
 {$ENDIF ~TD_ScientificStdMode}
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to <see cref="TypeDefinitions|StdInt" />.
@@ -813,12 +997,16 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PStdInt = ^StdInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to <see cref="TypeDefinitions|StdInt" />.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPStdInt = ^PStdInt;
+
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
@@ -840,6 +1028,8 @@ type
     Cardinal;
   {$ENDIF ~TD_ScientificStdMode}
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A pointer to <see cref="TypeDefinitions|StdUInt" />.
@@ -847,12 +1037,15 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PStdUInt = ^StdUInt;
 
+  {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
+
   {$IFDEF SUPPORTS_REGION}{$REGION 'Documentation'}{$ENDIF}
   /// <summary>
   ///   A double pointer to <see cref="TypeDefinitions|StdUInt" />.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
   PPStdUInt = ^PStdUInt;
+{$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
 
 implementation
 

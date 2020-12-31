@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="4">
+    <PathDelim Value="\"/>
+    <Name Value="Lib_TypeDefinitions"/>
+    <Author Value="Piotr Domański"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <IncludeFiles Value="..\..\Source\Include"/>
+        <OtherUnitFiles Value="..\..\Source"/>
+        <UnitOutputDirectory Value="..\..\Lib\FPC\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+    </CompilerOptions>
+    <Description Value="Lib.TypeDefinitions package"/>
+    <License Value="MPL-2.0"/>
+    <Version Minor="1" Release="5"/>
+    <Files Count="2">
+      <Item1>
+        <Filename Value="..\..\Source\TypeDefinitions.pas"/>
+        <UnitName Value="TypeDefinitions"/>
+      </Item1>
+      <Item2>
+        <Filename Value="..\..\Source\Include\TypeDefinitions.Config.inc"/>
+        <Type Value="Include"/>
+      </Item2>
+    </Files>
+    <RequiredPkgs Count="1">
+      <Item1>
+        <PackageName Value="FCL"/>
+      </Item1>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
