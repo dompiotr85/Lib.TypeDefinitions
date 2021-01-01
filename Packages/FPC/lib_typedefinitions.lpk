@@ -13,7 +13,9 @@
         <UnitOutputDirectory Value="..\..\Lib\FPC\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
     </CompilerOptions>
-    <Description Value="Lib.TypeDefinitions package"/>
+    <Description Value="The main assumption of this library is to simplify the naming of the basic
+types found in Delphi/FPC environments and preserve them in optimised sizes
+that will be identical for different platforms and Delphi/FPC versions."/>
     <License Value="MPL-2.0"/>
     <Version Minor="1" Release="5"/>
     <Files Count="2">

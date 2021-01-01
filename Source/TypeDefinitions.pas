@@ -15,7 +15,7 @@
 
  Version 0.1.5
 
- Copyright (c) 2018-2020, Piotr Domañski
+ Copyright (c) 2018-2021, Piotr Domañski
 
  Last change:
    31-12-2020
@@ -175,14 +175,13 @@ type
   ///   The 32-bit signed integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-  Int32 =
 {$IF SizeOf(LongInt) = 4}
-    LongInt;
+  Int32 = LongInt;
 {$ELSE}
  {$IF SizeOf(Integer) <> 4}
   {$MESSAGE FATAL 'Wrong size of 32-bit integers!'}
  {$ELSE}
-    Integer;
+  Int32 = Integer;
  {$IFEND}
 {$IFEND}
 
@@ -211,14 +210,13 @@ type
   ///   The 32-bit unsigned integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-  UInt32 =
 {$IF SizeOf(LongWord) = 4}
-    LongWord;
+  UInt32 = LongWord;
 {$ELSE}
  {$IF SizeOf(Cardinal) <> 4}
   {$MESSAGE FATAL 'Wrong size of 32-bit integers!'}
  {$ELSE}
-    Cardinal;
+  UInt = Cardinal;
  {$IFEND}
 {$IFEND}
 
@@ -305,11 +303,10 @@ type
   ///   The 64-bit unsigned integer.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-  UInt64 =
 {$IFDEF TD_UInt64_NotNative}
-    Int64;
+  UInt64 = Int64;
 {$ELSE ~TD_UInt64_NotNative}
-    System.UInt64;
+  UInt64 = System.UInt64;
 {$ENDIF ~TD_UInt64_NotNative}
 
 {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
@@ -437,13 +434,12 @@ type
   ///   A pointer size signed integer. It size depends on target platform.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-  PtrInt =
 {$IF SizeOf(Pointer) = 8}
-    Int64;
+  PtrInt = Int64;
 {$ELSEIF SizeOf(Pointer) = 4}
-    Int32;
+  PtrInt = Int32;
 {$ELSE}
-    {$MESSAGE FATAL 'Unsupported size of pointer type!'}
+ {$MESSAGE FATAL 'Unsupported size of pointer type!'}
 {$IFEND}
 
   {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
@@ -471,13 +467,12 @@ type
   ///   A pointer size unsigned integer. It size depends on target platform.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-  PtrUInt =
 {$IF SizeOf(Pointer) = 8}
-    UInt64;
+  PtrUInt = UInt64;
 {$ELSEIF SizeOf(Pointer) = 4}
-    UInt32;
+  PtrUInt = UInt32;
 {$ELSE}
-  {$MESSAGE FATAL 'Unsupported size of pointer type!'}
+ {$MESSAGE FATAL 'Unsupported size of pointer type!'}
 {$IFEND}
 
 {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
@@ -690,12 +685,11 @@ type
   ///   The 80-bit float type.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-  Float80 =
 {$IF SizeOf(Extended) = 10}
-    Extended;
+  Float80 = Extended;
 {$ELSE}
-    { Only for I/O operations, cannot be used in arithmetics. }
-    packed array[0..9] of UInt8;
+  { Only for I/O operations, cannot be used in arithmetics. }
+  Float80 = packed array[0..9] of UInt8;
 {$IFEND}
 
   {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
@@ -724,11 +718,10 @@ type
   ///   of <i>TD_ScientificFloatMode</i> directive.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-  Float =
 {$IFDEF TD_ScientificFloatMode}
-    Float64;
+  Float = Float64;
 {$ELSE ~TD_ScientificFloatMode}
-    Float32;
+  Float = Float32;
 {$ENDIF ~TD_ScientificFloatMode}
 
   {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
@@ -977,15 +970,14 @@ type
   ///   platforms and an equivalent of <i>NativeInt</i> on 64-bit platforms.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-  StdInt =
 {$IFDEF TD_ScientificStdMode}
  {$IFDEF CPUX64}
-    NativeInt;
+  StdInt = NativeInt;
  {$ELSE ~CPUX64}
-    Int64;
+  StdInt = Int64;
  {$ENDIF ~CPUX64}
 {$ELSE ~TD_ScientificStdMode}
-    Integer;
+  StdInt = Integer;
 {$ENDIF ~TD_ScientificStdMode}
 
   {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
@@ -1017,16 +1009,15 @@ type
   ///   and an equivalent of <i>NativeUInt</i> on 64-bit platforms.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-  StdUInt =
-  {$IFDEF TD_ScientificStdMode}
-   {$IFDEF CPUX64}
-    NativeUInt;
-   {$ELSE ~CPUX64}
-    UInt64;
-   {$ENDIF ~CPUX64}
-  {$ELSE ~TD_ScientificStdMode}
-    Cardinal;
-  {$ENDIF ~TD_ScientificStdMode}
+{$IFDEF TD_ScientificStdMode}
+ {$IFDEF CPUX64}
+  StdUInt = NativeUInt;
+ {$ELSE ~CPUX64}
+  StdUInt = UInt64;
+ {$ENDIF ~CPUX64}
+{$ELSE ~TD_ScientificStdMode}
+  StdUInt = Cardinal;
+{$ENDIF ~TD_ScientificStdMode}
 
   {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
