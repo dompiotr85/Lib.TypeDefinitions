@@ -18,7 +18,7 @@
  Copyright (c) 2018-2021, Piotr Domañski
 
  Last change:
-   31-12-2020
+   08-01-2021
 
  Changelog:
    For detailed changelog and history please refer to this git repository:
@@ -305,9 +305,9 @@ type
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
 {$IFDEF TD_UInt64_NotNative}
   UInt64 = Int64;
-{$ELSE ~TD_UInt64_NotNative}
+{$ELSE !TD_UInt64_NotNative}
   UInt64 = System.UInt64;
-{$ENDIF ~TD_UInt64_NotNative}
+{$ENDIF !TD_UInt64_NotNative}
 
 {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
@@ -718,11 +718,11 @@ type
   ///   of <i>TD_ScientificFloatMode</i> directive.
   /// </summary>
   {$IFDEF SUPPORTS_REGION}{$ENDREGION}{$ENDIF}
-{$IFDEF TD_ScientificFloatMode}
+{$IF DEFINED(TD_ScientificFloatMode)}
   Float = Float64;
-{$ELSE ~TD_ScientificFloatMode}
+{$ELSE}
   Float = Float32;
-{$ENDIF ~TD_ScientificFloatMode}
+{$IFEND}
 
   {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
@@ -973,12 +973,12 @@ type
 {$IFDEF TD_ScientificStdMode}
  {$IFDEF CPUX64}
   StdInt = NativeInt;
- {$ELSE ~CPUX64}
+ {$ELSE !CPUX64}
   StdInt = Int64;
- {$ENDIF ~CPUX64}
-{$ELSE ~TD_ScientificStdMode}
+ {$ENDIF !CPUX64}
+{$ELSE !TD_ScientificStdMode}
   StdInt = Integer;
-{$ENDIF ~TD_ScientificStdMode}
+{$ENDIF !TD_ScientificStdMode}
 
   {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
@@ -1012,12 +1012,12 @@ type
 {$IFDEF TD_ScientificStdMode}
  {$IFDEF CPUX64}
   StdUInt = NativeUInt;
- {$ELSE ~CPUX64}
+ {$ELSE !CPUX64}
   StdUInt = UInt64;
- {$ENDIF ~CPUX64}
-{$ELSE ~TD_ScientificStdMode}
+ {$ENDIF !CPUX64}
+{$ELSE !TD_ScientificStdMode}
   StdUInt = Cardinal;
-{$ENDIF ~TD_ScientificStdMode}
+{$ENDIF !TD_ScientificStdMode}
 
   {- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - }
 
