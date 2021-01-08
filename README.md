@@ -4,9 +4,9 @@
 
 ## What's Lib.TypeDefinitions
 
-The main assumption of this library is to simplify the naming of the basic types
-found in Delphi environment and preserve them in optimised sizes that will
-be identical for different platforms.
+The main assumption of this library is to simplify the naming of the basic
+types found in Delphi/FPC environments and preserve them in optimised sizes
+that will be identical for different platforms and Delphi/FPC versions.
 
 ## Clone with GIT
 

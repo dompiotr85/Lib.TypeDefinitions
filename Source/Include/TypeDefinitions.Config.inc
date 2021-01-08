@@ -41,7 +41,7 @@
 {$IFDEF TD_ScientificModeMax}
  {$DEFINE TD_ScientificFloatMode}
  {$DEFINE TD_ScientificStdMode}
-{$ENDIF ~TD_ScientificModeMax}
+{$ENDIF !TD_ScientificModeMax}
 
 {$H+}
 
@@ -53,5 +53,5 @@
  {$IFEND}
 {$IFEND}
 
-{$ENDIF ~TD_CONFIG_INC}
+{$ENDIF !TD_CONFIG_INC}
 
